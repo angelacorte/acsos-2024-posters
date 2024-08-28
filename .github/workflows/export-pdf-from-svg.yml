@@ -39,6 +39,11 @@ jobs:
           for file in *.svg; do
             inkscape --export-type=pdf "$file"
           done
+      - name: Create Release
+        uses: DanySK/create-release-action@master
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: ${{ github.ref }}
       - name: Deploy
         if: inputs.publish-enable == 'true'
         env:
