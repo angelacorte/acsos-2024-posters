@@ -39,37 +39,37 @@ jobs:
           for file in *.svg; do
             inkscape --export-type=pdf "$file"
           done
-      - name: Create Release
-        uses: DanySK/create-release-action@master
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          version: ${{ github.ref }}
+            # Checkout the repository
+     
+      - name: Autotag
+        uses: DanySK/semver-autotag-action@0.1.0
       - name: Deploy
         if: inputs.publish-enable == 'true'
         env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            GITHUB_TOKEN: ${{ inputs.token }}
+        shell: bash
         run: |
             if [[ -z $GITHUB_TOKEN ]]; then
             echo "No token set, cannot deploy"
             false
             else
-                if [[ $GITHUB_REF == 'refs/heads/master'
-                    || $GITHUB_REF == 'refs/heads/main'
-                    || $GITHUB_REF == 'refs/heads/default'
-                    || $GITHUB_REF == "refs/tags"*
-                ]]; then
-                    TAG=$(git describe --tags --exact-match HEAD)
-                    echo "Preparing release $TAG"
-                    git tag --delete "$TAG"
-                    git tag "$TAG"
-                    git push --tags && echo "Tag $TAG successfully pushed" || true
-                    gh release create --notes-from-tag "$TAG" || true
-                    while IFS= read -r file; do
-                    pdf="${file%.*}.pdf"
-                    echo "Delivering file $pdf"
-                    gh release upload "$TAG" "$pdf" --clobber
-                    done <<< "$LATEX_SUCCESSES"
-                else
-                    echo "Not running deployment from unknown source: $GITHUB_REF"
-                fi
+            if [[ $GITHUB_REF == 'refs/heads/master'
+                || $GITHUB_REF == 'refs/heads/main'
+                || $GITHUB_REF == 'refs/heads/default'
+                || $GITHUB_REF == "refs/tags"*
+            ]]; then
+                TAG=$(git describe --tags --exact-match HEAD)
+                echo "Preparing release $TAG"
+                git tag --delete "$TAG"
+                git tag "$TAG"
+                git push --tags && echo "Tag $TAG successfully pushed" || true
+                gh release create --notes-from-tag "$TAG" || true
+                while IFS= read -r file; do
+                pdf="${file%.*}.pdf"
+                echo "Delivering file $pdf"
+                gh release upload "$TAG" "$pdf" --clobber
+                done <<< echo "Success"
+            else
+                echo "Not running deployment from unknown source: $GITHUB_REF"
+            fi
             fi
