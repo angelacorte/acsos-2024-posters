@@ -39,30 +39,7 @@ jobs:
           for file in *.svg; do
             inkscape --export-type=pdf "$file"
           done
-
-      - name: Release
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          npm install
-          npx semantic-release
-
-    #   - name: Deploy to GitHub Releases
-    #     env:
-    #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #     shell: bash
-    #     run: |
-    #       if [[ $GITHUB_REF == 'refs/heads/master' || $GITHUB_REF == 'refs/heads/main' ]]; then
-    #         TAG=$(git describe --tags --exact-match HEAD || echo "")
-    #         if [[ -n $TAG ]]; then
-    #           echo "Preparing release $TAG"
-    #           gh release create "$TAG" ./*.pdf --notes "Release $TAG" --clobber
-    #         else
-    #           echo "No tag found for this commit"
-    #         fi
-    #       else
-    #         echo "Deployment not triggered. Current branch: $GITHUB_REF"
-    #       fi
+          
       - name: Autotag
         uses: DanySK/semver-autotag-action@0.1.0
       - name: Deploy
