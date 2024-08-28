@@ -1,5 +1,5 @@
-name: Build svg and deploy on GitHub Releases
-
+name: 'Build svg and deploy on GitHub Releases'
+    
 on:
   push:
     tags: '*'
@@ -21,13 +21,19 @@ permissions:
 jobs:
   compile:
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
+    if: github.event_name == 'push' && contains(github.ref, 'master')
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }} 
-          submodules: recursive
+    
+      - name: Setup Node
+        run: |
+            sudo apt update
+            sudo npm cache clean -f
+            sudo npm install -g n
+            sudo n 20.17
       
       - name: Install Inkscape
         run: |
@@ -41,35 +47,9 @@ jobs:
           done
             # Checkout the repository
      
-      - name: Autotag
-        uses: DanySK/semver-autotag-action@0.1.0
-      - name: Deploy
-        if: inputs.publish-enable == 'true'
+      - name: Release
         env:
-            GITHUB_TOKEN: ${{ inputs.token }}
-        shell: bash
+            GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-            if [[ -z $GITHUB_TOKEN ]]; then
-            echo "No token set, cannot deploy"
-            false
-            else
-            if [[ $GITHUB_REF == 'refs/heads/master'
-                || $GITHUB_REF == 'refs/heads/main'
-                || $GITHUB_REF == 'refs/heads/default'
-                || $GITHUB_REF == "refs/tags"*
-            ]]; then
-                TAG=$(git describe --tags --exact-match HEAD)
-                echo "Preparing release $TAG"
-                git tag --delete "$TAG"
-                git tag "$TAG"
-                git push --tags && echo "Tag $TAG successfully pushed" || true
-                gh release create --notes-from-tag "$TAG" || true
-                while IFS= read -r file; do
-                pdf="${file%.*}.pdf"
-                echo "Delivering file $pdf"
-                gh release upload "$TAG" "$pdf" --clobber
-                done <<< echo "Success"
-            else
-                echo "Not running deployment from unknown source: $GITHUB_REF"
-            fi
-            fi
+            npm install
+            npx semantic-release
