@@ -1,4 +1,5 @@
 name: Build svg and deploy on GitHub Releases
+
 on:
   push:
     tags: '*'
@@ -14,62 +15,51 @@ on:
   pull_request:
   workflow_dispatch:
 
-permissions: { }
+permissions:
+  contents: write
 
 jobs:
-  setup-compile-deploy:
-    permissions:
-      contents: write
   compile:
-    if: github.event_name == 'push'
     runs-on: ubuntu-latest
-    concurrency:
-      group: release
-      cancel-in-progress: false
+    if: github.event_name == 'push'
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }} 
           submodules: recursive
-
-      - name: generate pdf
+      
+      - name: Install Inkscape
         run: |
-            sudo apt-get install inkscape
-            inkscape --export-type=pdf *.svg
+          sudo apt-get update
+          sudo apt-get install -y inkscape
+
+      - name: Generate PDFs from SVGs
+        run: |
+          for file in *.svg; do
+            inkscape --export-type=pdf "$file"
+          done
+
       - name: Release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm install
           npx semantic-release
-      - name: Deploy
-        if: inputs.publish-enable == 'true'
+
+      - name: Deploy to GitHub Releases
         env:
-            GITHUB_TOKEN: ${{ inputs.token }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: bash
         run: |
-            if [[ -z $GITHUB_TOKEN ]]; then
-            echo "No token set, cannot deploy"
-            false
+          if [[ $GITHUB_REF == 'refs/heads/master' || $GITHUB_REF == 'refs/heads/main' ]]; then
+            TAG=$(git describe --tags --exact-match HEAD || echo "")
+            if [[ -n $TAG ]]; then
+              echo "Preparing release $TAG"
+              gh release create "$TAG" ./*.pdf --notes "Release $TAG" --clobber
             else
-            if [[ $GITHUB_REF == 'refs/heads/master'
-                || $GITHUB_REF == 'refs/heads/main'
-                || $GITHUB_REF == 'refs/heads/default'
-                || $GITHUB_REF == "refs/tags"*
-            ]]; then
-                TAG=$(git describe --tags --exact-match HEAD)
-                echo "Preparing release $TAG"
-                git tag --delete "$TAG"
-                git tag "$TAG"
-                git push --tags && echo "Tag $TAG successfully pushed" || true
-                gh release create --notes-from-tag "$TAG" || true
-                while IFS= read -r file; do
-                pdf="${file%.*}.pdf"
-                echo "Delivering file $pdf"
-                gh release upload "$TAG" "$pdf" --clobber
-                done <<< "$LATEX_SUCCESSES"
-            else
-                echo "Not running deployment from unknown source: $GITHUB_REF"
+              echo "No tag found for this commit"
             fi
-            fi
+          else
+            echo "Deployment not triggered. Current branch: $GITHUB_REF"
+          fi
