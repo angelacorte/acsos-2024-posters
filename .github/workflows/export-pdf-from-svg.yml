@@ -39,11 +39,6 @@ jobs:
           for file in *.svg; do
             inkscape --export-type=pdf "$file"
           done
-      - name: Fetch tags
-        shell: bash
-        run: git fetch --tags -f
-      - name: Autotag
-        uses: DanySK/semver-autotag-action@master
       - name: Deploy
         if: inputs.publish-enable == 'true'
         env:
