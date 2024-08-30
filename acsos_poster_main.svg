@@ -27,9 +27,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="0.30715942"
-     inkscape:cx="1502.4771"
-     inkscape:cy="1811.7627"
+     inkscape:zoom="0.48744964"
+     inkscape:cx="1500.6679"
+     inkscape:cy="3806.5471"
      inkscape:window-width="2560"
      inkscape:window-height="1440"
      inkscape:window-x="0"
@@ -212,7 +212,7 @@
            y="1039.0643"
            id="tspan2"><tspan
              dx="0 0 0 -0.055563722 0.055562943 0 -0.055562291 0.055561036 -0.055562291 0.055564851 0 0 0 0 -0.05556253 0.055557221 0 0 -0.055561338 0.055564851 0 0 -0.055563722 0.055557221 0 0 0 0 0 -0.055554662 0.055557221 0 -0.055566583 0.055557221 0 0 0 0 0.132292 -0.13229969 0 0 0 -0.055570159 0.05557248 0 0 0 0 0 0 0 0 0 -0.055568013 0.055557221 0 0 0 -0.055568967 0.055587739 0 0 0 0 -0.055557046 0.055557221 0 -0.055547986 0.055557221 0 0 0 0 -0.055568013 0.055587739 0 0 0 0 0 0 0 0 0 -0.055569921"
-             style="font-weight:normal;font-size:12.7px;line-height:1.1;-inkscape-font-specification:'Fira Math, Normal'"
+             style="font-weight:normal;font-size:12.7px;line-height:1.1;-inkscape-font-specification:'Fira Math, Normal';fill:#ffffff;fill-opacity:1"
              id="tspan1">VMC is a model for the growth of artificial structures over time, it draws ispiration</tspan><tspan
              y="1039.0643"
              id="tspan3"> </tspan></tspan><tspan
@@ -220,7 +220,7 @@
            y="1053.0343"
            id="tspan5"><tspan
              dx="0 0 0 0 -0.055561338 0.055561036 0 0 0 0 0 0 -0.055560384 0.055557221 0 0 0 0 0 0 0 0 0 0 0 0 0 -0.055572305 0.05557248 0 -0.055563245 0.05557248 0 0 0 0 0 0 0 -0.055568013 0.05557248 0 0 -0.055556092 0.055557221 0 0 0 0 0 0 0 -0.055568013 0.055557221 0 -0.055566583 0.055557221 0 0 0 0 0 0 0 -0.055556092 0.055557221 0 0 0 0 0 0 0 0 0 0 0 -0.055569921 0.055557221 0 -0.055569921"
-             style="font-weight:normal;font-size:12.7px;line-height:1.1;-inkscape-font-specification:'Fira Math, Normal'"
+             style="font-weight:normal;font-size:12.7px;line-height:1.1;-inkscape-font-specification:'Fira Math, Normal';fill:#ffffff;fill-opacity:1"
              id="tspan4">from plant's morphogenesis. It captures the dynamics of resource distribution in</tspan><tspan
              y="1053.0343"
              id="tspan6"> </tspan></tspan><tspan
@@ -228,20 +228,20 @@
            y="1067.0042"
            id="tspan8"><tspan
              dx="0 0 0 0 0 0 0 0 0 0 0 -0.055561814 0.055564851 0 0 0 0 0 0 0 0 0 0 -0.055572305 0.05557248 0 0 0 0 -0.055556092 0.055557221 0 0 0 0 0 0 0 -0.055568013 0.05557248 0 0 0 0 0 0 -0.05558661 0.055557221 0 -0.05555037 0.055557221 0 0 0 0 -0.055557046"
-             style="font-weight:normal;font-size:12.7px;line-height:1.1;-inkscape-font-specification:'Fira Math, Normal'"
+             style="font-weight:normal;font-size:12.7px;line-height:1.1;-inkscape-font-specification:'Fira Math, Normal';fill:#ffffff;fill-opacity:1"
              id="tspan7">tree-shaped structures, where branches compete to grow.
 </tspan></tspan><tspan
            x="531.00635"
            y="1080.9742"
            id="tspan10"><tspan
-             style="font-weight:normal;font-size:12.7px;line-height:1.1;-inkscape-font-specification:'Fira Math, Normal'"
+             style="font-weight:normal;font-size:12.7px;line-height:1.1;-inkscape-font-specification:'Fira Math, Normal';fill:#ffffff;fill-opacity:1"
              id="tspan9">
 </tspan></tspan><tspan
            x="531.00635"
            y="1094.9442"
            id="tspan12"><tspan
              dx="0 0 -0.055562291 0.05556199 0 0 0 -0.055560861 0.055561036 0 0 0 0 -0.055560384 0.055564851 0 -0.055562291 0.055557221 -0.055558477 0.055564851 0 0 0 -0.055571351 0.05557248 0 0 0 0 0 0 0 0 -0.055571351 0.055557221 0 0 0 0 0 0 -0.055563245 0.05557248 0 0 -0.055569444 0.05557248 0 0 0 0 0 0 0 -0.055547986 0.055557221 0 0 0 0 0 0 -0.055537496 0.055557221 0 0 0 -0.055557523 0.055557221 0 0 -0.05558661 0.055587739 0 0 0 0 0 0 0 0 0 0 -0.055578504"
-             style="font-weight:normal;font-size:12.7px;line-height:1.1;-inkscape-font-specification:'Fira Math, Normal'"
+             style="font-weight:normal;font-size:12.7px;line-height:1.1;-inkscape-font-specification:'Fira Math, Normal';fill:#ffffff;fill-opacity:1"
              id="tspan11">In VMC, nodes in a tree structure collect and transmit success from the environment</tspan><tspan
              y="1094.9442"
              id="tspan13"> </tspan></tspan><tspan
@@ -249,7 +249,7 @@
            y="1108.9141"
            id="tspan15"><tspan
              dx="0 0 -0.055562768 0.055562943 0 0 0 0 -0.055561814 0.055564851 0 0 0 0 -0.055568013 0.055564851 0 -0.055558 0.055557221 0 0 0 0 -0.055561338 0.055564851 0 0 0 0 0 0 -0.055572305 0.05557248 0 0 0 -0.055568013 0.055557221 0 0 0 0 0 0 -0.055568013 0.05557248 0 0 0.132292 -0.1322749 0 0 0 0 0 -0.055568013 0.055557221 0 0 -0.055556092 0.055557221 0 0 0 0 0 0 0 0 -0.055537496 0.055557221 0 -0.055536065 0.055557221 0 0 0 0 0 0 0 -0.055568967"
-             style="font-weight:normal;font-size:12.7px;line-height:1.1;-inkscape-font-specification:'Fira Math, Normal'"
+             style="font-weight:normal;font-size:12.7px;line-height:1.1;-inkscape-font-specification:'Fira Math, Normal';fill:#ffffff;fill-opacity:1"
              id="tspan14">or child nodes to their parent. This success influences the thickness of vascular</tspan><tspan
              y="1108.9141"
              id="tspan16"> </tspan></tspan><tspan
@@ -257,7 +257,7 @@
            y="1124.0835"
            id="tspan19"><tspan
              dx="0 0 0 0 0 0 0 0 0 -0.055560861 0.055561036 0 0 0 0 0 0 0 0 0 -0.055558477 0.055557221 0 0 -0.055571351 0.05557248 0 0 0 0 0 0 0 0 0 0 0 -0.055554662 0.055557221 0 -0.055551324 0.055557221 0 0 0 0 0 0 0 0 -0.055568013 0.055557221 0 0 0 -0.055557523 0.055557221 0 0 0 -0.055578504 0.055557221 0 -0.055580888 0.055587739"
-             style="font-weight:normal;font-size:12.7px;line-height:1.1;-inkscape-font-specification:'Fira Math, Normal'"
+             style="font-weight:normal;font-size:12.7px;line-height:1.1;-inkscape-font-specification:'Fira Math, Normal';fill:#ffffff;fill-opacity:1"
              id="tspan17">pathways, regulating the distribution of resources from root to leaves.</tspan><tspan
              dx="-0.055557046"
              style="line-height:1.1;fill:#ffffff;fill-opacity:1"
@@ -296,7 +296,7 @@
          id="text59"><tspan
            sodipodi:role="line"
            id="tspan59"
-           style="font-size:12.3472px;stroke:none;stroke-width:2"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.3472px;font-family:'Fira Math';-inkscape-font-specification:'Fira Math, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke:none;stroke-width:2"
            x="330.11218"
            y="104.3265">Angela Cortecchia, Danilo Pianini, Giovanni Ciatto &amp; Roberto Casadei -- University of Bologna</tspan></text></g><g
        id="g60"
