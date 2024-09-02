@@ -25,13 +25,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.1.7
 
-      # - name: install-inkscape
-      #   run: |
-      #     sudo apt-get update
-      #     sudo apt-get install -y inkscape
+      - name: install-inkscape
+        run: |
+          sudo add-apt-repository universe
+          sudo add-apt-repository ppa:inkscape.dev/stable
+          sudo apt-get update
+          sudo apt install -y inkscape
+          inkscape --version 
       
-      # - name: Build documents
-      #   run: for file in `ls *svg`; do inkscape --export-type=pdf $file; done
+      - name: Build documents
+        run: for file in `ls *svg`; do inkscape --export-type=pdf $file; done
       
       - name: Upload PDF file
         uses: actions/upload-artifact@v4.3.4
